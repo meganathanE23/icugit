@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k: k
+  template:
+    metadata:
+      labels:
+        k: k
+    spec:
+      containers:
+         - name: payments
+           image: kumarezzz/mynewimage:v1
+           ports:
+             - containerPort: 80
+      imagePullSecrets:
+        - name: myregistrykey
